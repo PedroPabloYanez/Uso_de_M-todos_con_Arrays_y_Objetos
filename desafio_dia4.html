@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Centro Médico Ñuñoa</title>
+    <style>
+        #table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 35%;
+        }
+
+        #table td, #table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        }
+
+        #table tr:nth-child(even){background-color: #f2f2f2;}
+
+        #table tr:hover {background-color: #ddd;}
+
+        #table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<script>
+document.write('<h1>Estadisticas centro medico ñuñoa</h1>');
+
+var radiologia = [
+    {hora: '11:00', especialista: 'IGNACIO SCHULZ', paciente: 'FRANCISCA ROJAS', rut: '9878782-1', prevision: 'FONASA'},
+    {hora: '11:30', especialista: 'FEDERICO SUBERCASEAUX', paciente: 'PAMELA ESTRADA', rut: '15345241-3', prevision: 'ISAPRE'},
+    {hora: '15:00', especialista: 'FERNANDO WURTHZ', paciente: 'ARMANDO LUNA', rut: '16445345-9', prevision: 'ISAPRE'},
+    {hora: '15:30', especialista: 'ANA MARIA GODOY', paciente: 'MANUEL GODOY', rut: '17666419-0', prevision: 'FONASA'},
+    {hora: '16:00', especialista: 'PATRICIA SUAZO', paciente: 'RAMON ULLOA', rut: '14989389-K', prevision: 'FONASA'},
+];
+
+var traumatologia = [
+    {hora: '8:00',  especialista: 'MARIA PAZ ALTUZARRA', paciente: 'PAULA SANCHEZ',     rut: '15554774-5', prevision: 'FONASA'},
+    {hora: '10:00', especialista: 'RAUL ARAYA',          paciente: 'ANGÉLICA NAVAS',    rut: '15444147-9', prevision: 'ISAPRE'},
+    {hora: '10:30', especialista: 'MARIA ARRIAGADA',     paciente: 'ANA KLAPP',         rut: '17879423-9', prevision: 'ISAPRE'},
+    {hora: '11:00', especialista: 'ALEJANDRO BADILLA',   paciente: 'FELIPE MARDONES',   rut: '1547423-6', prevision: 'ISAPRE'},
+    {hora: '11:30', especialista: 'CECILIA BUDNIK',      paciente: 'DIEGO MARRE',       rut: '16554741-K', prevision: 'FONASA'},
+    {hora: '12:00', especialista: 'ARTURO CAVAGNARO',    paciente: 'CECILIA MENDEZ',    rut: '9747535-8', prevision: 'ISAPRE'},
+    {hora: '12:30', especialista: 'ANDRES KANACRI',      paciente: 'MARCIAL SUAZO',     rut: '11254785-5', prevision: 'ISAPRE'},    
+];
+
+var dental = [
+    {hora: '8:30',  especialista: 'ANDREA ZUÑIGA',          paciente: 'MARCELA RETAMAL',rut: '11123425-6', prevision: 'ISAPRE'},
+    {hora: '11:00', especialista: 'MARIA PIA ZAÑARTU',      paciente: 'ANGEL MUÑOZ',    rut: '9878789-2',  prevision: 'ISAPRE'},
+    {hora: '11:30', especialista: 'SCARLETT WITTING',       paciente: 'MARIO KAST',     rut: '7998789-5',  prevision: 'FONASA'},
+    {hora: '13:00', especialista: 'FRANCISCO VON TEUBER',   paciente: 'KARIN FERNANDEZ',rut: '18887662-K', prevision: 'FONASA'},
+    {hora: '13:30', especialista: 'EDUARDO VIÑUELA',        paciente: 'HUGO SANCHEZ',   rut: '17665461-4', prevision: 'FONASA'},
+    {hora: '14:00', especialista: 'RAQUEL VILLASECA',       paciente: 'ANA SEPULVEDA',  rut: '14441281-0', prevision: 'ISAPRE'},
+];
+
+
+
+//1. Agregar nuevos datos a traumatologia
+
+var traumatologiaPusheada = traumatologia
+traumatologiaPusheada.push(
+    {hora: '09:00', especialista: 'RENÉ POBLETE',        paciente: 'ANA GELLONA',       rut: '13123329-7', prevision: 'ISAPRE'},
+    {hora: '09:30', especialista: 'MARIA SOLAR',         paciente: 'RAMIRO ANDRADE',    rut: '12221451-K', prevision: 'FONASA'},
+    {hora: '10:00', especialista: 'RAUL LOYOLA',         paciente: 'CARMEN ISLA',       rut: '10112348-3', prevision: 'ISAPRE'},
+    {hora: '10:30', especialista: 'ANTONIO LARENAS',     paciente: 'PABLO LOAYZA',      rut: '13453234-1', prevision: 'ISAPRE'},
+    {hora: '12:00', especialista: 'MATIAS ARAVENA',      paciente: 'SUSANA POBLETE',    rut: '14345656-6', prevision: 'FONASA'},);
+
+
+//Agregar código para el desafio 2 aquí
+    var radiologiaCut = radiologia
+    radiologiaCut.shift()
+    radiologiaCut.pop()
+//----------
+
+//Agregar código para el desafio 2 aquí
+document.write(`<p>Cantidad de atenciones para Radiología: ${radiologiaCut.length}</p>`);
+document.write(`<p>Cantidad de atenciones para Traumatología: ${traumatologia.length}</p>`);
+document.write(`<p>Cantidad de atenciones para Dental: ${dental.length}</p>`);
+
+
+document.write(`<p>Primera atencion: ${radiologiaCut[0].paciente} - ${radiologiaCut[0].prevision} | Última atención: ${radiologiaCut[radiologiaCut.length -1].paciente} - ${radiologiaCut[radiologiaCut.length -1].prevision}.</p>`);
+document.write(`<p>Primera atencion: ${traumatologiaPusheada[0].paciente} - ${traumatologiaPusheada[0].prevision} | Última atención: ${traumatologiaPusheada[traumatologiaPusheada.length -1].paciente} - ${traumatologiaPusheada[traumatologiaPusheada.length -1].prevision}.</p>`);
+document.write(`<p>Primera atencion: ${dental[0].paciente} - ${dental[0].prevision} | Última atención: ${dental[dental.length -1].paciente} - ${dental[dental.length -1].prevision}.</p>`);
+
+document.write("<br>")
+
+//3. Imprimir lista de consultas médicas de dental.
+document.write('<table id="table">');
+document.write('<thead>');
+document.write('<tr>');
+document.write('<th>Lista Consulta médica Dental</th>');
+document.write('</tr>');
+document.write('</thead>');
+document.write('<tbody>');
+dental.forEach(function(datospacientes) {
+    document.write(`<tr><td>${datospacientes.hora} - ${datospacientes.especialista} - ${datospacientes.paciente} - ${datospacientes.rut} - ${datospacientes.prevision}</td></tr> `); 
+});
+document.write('</tbody>');
+document.write('<table>');
+
+document.write("<br>")
+
+//4. Imprimir todos los nombres de los arreglos
+document.write('<table id="table">');
+document.write('<thead>');
+document.write('<tr>');
+document.write('<th>Listado completo Nombres Paciente</th>');
+document.write('</tr>');
+document.write('</thead>');
+document.write('<tbody>');
+    var listadoConsultas = radiologiaCut.concat(traumatologiaPusheada, dental);
+    listadoConsultas.forEach(function(c) {
+    document.write(`<tr>
+    <td>${c.paciente}</td>
+    </tr>`);
+});
+document.write('</tbody>');
+document.write('<table>');
+
+//Listado de los pacientes completo, no se consideran aquellos que fue solicitado sacar del listado en el ejercicio Nº 2
+
+//5. Filtrar aquellos pacientes que indican ser de ISAPRE en la lista de consultas médicas de Dental
+document.write("<br>")
+document.write('<table id="table">');
+document.write('<thead>');
+document.write('<tr>');
+document.write('<th>Nombres Paciente con Isapre en Dental</th>');
+document.write('</tr>');
+document.write('</thead>');
+document.write('<tbody>');
+var clientesIsapre = dental.filter(function(dental){
+    if (dental.prevision == 'ISAPRE')
+        document.write(`<tr><td>${dental.paciente} - ${dental.prevision}</td></tr>`)
+});
+document.write('</tbody>');
+document.write('<table>');
+
+//6. Filtrar aquellos pacientes que indican ser de FONASA en la lista de consultas médicas de Traumatología.
+document.write("<br>")
+document.write('<table id="table">');
+document.write('<thead>');
+document.write('<tr>');
+document.write('<th>Nombres Paciente con Fonasa en Traumatología</th>');
+document.write('</tr>');
+document.write('</thead>');
+document.write('<tbody>');
+var clientesFonasa = traumatologia.filter(function(traumatologia){
+    if (traumatologia.prevision == 'FONASA')
+        document.write(`<tr><td>${traumatologia.paciente} - ${traumatologia.prevision}</td></tr>`)
+});
+document.write('</tbody>');
+document.write('<table>');
+
+
+</script>
+<body>
+    
+</body>
+</html>
